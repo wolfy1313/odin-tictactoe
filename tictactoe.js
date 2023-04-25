@@ -5,51 +5,100 @@
 // console.log(getComputerChoice(choices))
 const choices = ["rock", "paper", "scissors"]
 const getComputerChoice = choices => choices[Math.floor(Math.random()*choices.length)]
+const computerSelection = getComputerChoice(choices)
+const playerSelection = prompt("Choose paper, rock or scissors");
 
+function winIncrement() {
+  let winCount = 0;
+  function newWinCount(){
+    console.log(winCount)
+    winCount++
+  }
+  return newWinCount
+}
+
+function lossIncrement() {
+  let lossCount = 0;
+  function newLossCount(){
+    console.log(lossCount)
+    lossCount++
+  }
+  return newLossCount
+}
+
+function tieIncrement(){
+  let tieCount
+  function newTieCount(){
+    console.log(tieCount)
+    tieCount+=1
+  }
+  return newTieCount
+}
 let playRound = (playerSelection, computerSelection) => {
+  if(!playerSelection){
+    return "fine don't play then"
+  }
   switch(playerSelection.toLowerCase()){
     case 'rock':
       if (computerSelection === 'rock') {
-        return "it is a tie"
+        console.log(tieIncrement())
+        return "TIE"
       }
       else if (computerSelection === 'paper'){
-        return "you lose computer picked paper"
+        lossIncrement()
+        return "LOSE"
       }
       else if (computerSelection === 'scissors'){
-        return "you win computer selected scissor"
+        winIncrement()
+        return "WIN"
       }
       break;
     case 'paper':
       if (computerSelection === 'paper') {
-        return "it is a tie"
+        console.log(tieIncrement())
+        return "TIE"
       }
       else if (computerSelection === 'scissors'){
-        return "you lose computer picked scissors"
+        lossIncrement()
+        return "LOSE"
       }
       else if (computerSelection === 'rock'){
-        return "you win computer selected rock"
+        winCount++
+        return "WIN"
       }
       break;
     case 'scissors':
       if (computerSelection === 'scissors') {
-        return "it is a tie"
+        console.log(tieIncrement())
+        return "TIE"
       }
       else if (computerSelection === 'rock'){
-        return "you lose computer picked rock"
+        lossIncrement()
+        return "LOSE"
       }
       else if (computerSelection === 'paper'){
-        return "you win computer selected paper"
+        winCount++
+        return "WIN"
       }
       break;
     default:
-      return "that is not a valid selection"
+      return "that is not a valid selection."
   }
 }
 // const getPlayerChoice = prompt("Choose paper, rock or scissors")
 
-const playerSelection = prompt("Choose paper, rock or scissors");
-const computerSelection = getComputerChoice(choices)
-console.log(playRound(playerSelection, getComputerChoice(choices)))
+function game() {
+  console.log(playRound(playerSelection, getComputerChoice(choices)));
+  console.log(playRound(playerSelection, getComputerChoice(choices)));
+  console.log(playRound(playerSelection, getComputerChoice(choices)));
+  console.log(playRound(playerSelection, getComputerChoice(choices)));
+  console.log(playRound(playerSelection, getComputerChoice(choices)));
+  
+}
+
+game()
+
+// console.log(playRound(playerSelection, getComputerChoice(choices)))
 
 // let playerSelection = () => {
 
