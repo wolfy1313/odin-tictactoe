@@ -6,34 +6,8 @@
 const choices = ["rock", "paper", "scissors"]
 const getComputerChoice = choices => choices[Math.floor(Math.random()*choices.length)]
 const computerSelection = getComputerChoice(choices)
-const playerSelection = prompt("Choose paper, rock or scissors");
+// const playerSelection = prompt("Choose paper, rock or scissors"); (this was for single round game)
 
-function winIncrement() {
-  let winCount = 0;
-  function newWinCount(){
-    console.log(winCount)
-    winCount++
-  }
-  return newWinCount
-}
-
-function lossIncrement() {
-  let lossCount = 0;
-  function newLossCount(){
-    console.log(lossCount)
-    lossCount++
-  }
-  return newLossCount
-}
-
-function tieIncrement(){
-  let tieCount
-  function newTieCount(){
-    console.log(tieCount)
-    tieCount+=1
-  }
-  return newTieCount
-}
 let playRound = (playerSelection, computerSelection) => {
   if(!playerSelection){
     return "fine don't play then"
@@ -41,25 +15,25 @@ let playRound = (playerSelection, computerSelection) => {
   switch(playerSelection.toLowerCase()){
     case 'rock':
       if (computerSelection === 'rock') {
-        console.log(tieIncrement())
+        tieCount++
         return "TIE"
       }
       else if (computerSelection === 'paper'){
-        lossIncrement()
+        lossCount++
         return "LOSE"
       }
       else if (computerSelection === 'scissors'){
-        winIncrement()
+        winCount++
         return "WIN"
       }
       break;
     case 'paper':
       if (computerSelection === 'paper') {
-        console.log(tieIncrement())
+        tieCount++
         return "TIE"
       }
       else if (computerSelection === 'scissors'){
-        lossIncrement()
+        lossCount++
         return "LOSE"
       }
       else if (computerSelection === 'rock'){
@@ -69,11 +43,11 @@ let playRound = (playerSelection, computerSelection) => {
       break;
     case 'scissors':
       if (computerSelection === 'scissors') {
-        console.log(tieIncrement())
+        tieCount++
         return "TIE"
       }
       else if (computerSelection === 'rock'){
-        lossIncrement()
+        lossCount++
         return "LOSE"
       }
       else if (computerSelection === 'paper'){
@@ -85,21 +59,23 @@ let playRound = (playerSelection, computerSelection) => {
       return "that is not a valid selection."
   }
 }
-// const getPlayerChoice = prompt("Choose paper, rock or scissors")
-
+let winCount = 0;
+let lossCount = 0;
+let tieCount = 0;
 function game() {
-  console.log(playRound(playerSelection, getComputerChoice(choices)));
-  console.log(playRound(playerSelection, getComputerChoice(choices)));
-  console.log(playRound(playerSelection, getComputerChoice(choices)));
-  console.log(playRound(playerSelection, getComputerChoice(choices)));
-  console.log(playRound(playerSelection, getComputerChoice(choices)));
+  for (let i = 1; i < 10; i++){
+    let playerSelection = prompt("Paper, Rock or Scissors?")
+    console.log(playRound(playerSelection, getComputerChoice(choices)))
+    console.log(`Wins: ${winCount}, Losses: ${lossCount}, Ties: ${tieCount}`)
+    if (winCount >= 3){
+      console.log("PLAYER WINS")
+    } else if (lossCount >= 3 ){
+      console.log("PLAYER LOSES")
+    } else if (tieCount > 0){
+      i--
+    }
+  }
   
 }
 
 game()
-
-// console.log(playRound(playerSelection, getComputerChoice(choices)))
-
-// let playerSelection = () => {
-
-// }
