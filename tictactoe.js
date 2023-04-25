@@ -63,17 +63,17 @@ let winCount = 0;
 let lossCount = 0;
 let tieCount = 0;
 function game() {
-  for (let i = 1; i < 10; i++){
+  do {
     let playerSelection = prompt("Paper, Rock or Scissors?")
     console.log(playRound(playerSelection, getComputerChoice(choices)))
     console.log(`Wins: ${winCount}, Losses: ${lossCount}, Ties: ${tieCount}`)
-    if (winCount >= 3){
-      console.log("PLAYER WINS")
-    } else if (lossCount >= 3 ){
-      console.log("PLAYER LOSES")
-    } else if (tieCount > 0){
-      i--
-    }
+  }
+  while(winCount < 3 && lossCount < 3)
+  
+  if (winCount >= 3){
+    console.log("PLAYER WINS")
+  } else if (lossCount >= 3 ){
+    console.log("PLAYER LOSES")
   }
   
 }
