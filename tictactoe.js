@@ -12,13 +12,17 @@ let playRound = (playerSelection, computerSelection) => {
   if(!playerSelection){
     return "fine don't play then"
   }
+  if(playerSelection.toLowerCase() === computerSelection){
+    tieCount++
+    return "TIE"
+  }
   switch(playerSelection.toLowerCase()){
     case 'rock':
-      if (computerSelection === 'rock') {
-        tieCount++
-        return "TIE"
-      }
-      else if (computerSelection === 'paper'){
+      // if (computerSelection === 'rock') {
+      //   tieCount++
+      //   return "TIE"
+      // }
+       if (computerSelection === 'paper'){
         lossCount++
         return "LOSE"
       }
@@ -28,11 +32,11 @@ let playRound = (playerSelection, computerSelection) => {
       }
       break;
     case 'paper':
-      if (computerSelection === 'paper') {
-        tieCount++
-        return "TIE"
-      }
-      else if (computerSelection === 'scissors'){
+      // if (computerSelection === 'paper') {
+      //   tieCount++
+      //   return "TIE"
+      // }
+       if (computerSelection === 'scissors'){
         lossCount++
         return "LOSE"
       }
@@ -42,11 +46,11 @@ let playRound = (playerSelection, computerSelection) => {
       }
       break;
     case 'scissors':
-      if (computerSelection === 'scissors') {
-        tieCount++
-        return "TIE"
-      }
-      else if (computerSelection === 'rock'){
+      // if (computerSelection === 'scissors') {
+      //   tieCount++
+      //   return "TIE"
+      // }
+       if (computerSelection === 'rock'){
         lossCount++
         return "LOSE"
       }
