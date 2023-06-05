@@ -18,11 +18,8 @@ let playRound = (playerSelection, computerSelection) => {
   }
   switch(playerSelection.toLowerCase()){
     case 'rock':
-      // if (computerSelection === 'rock') {
-      //   tieCount++
-      //   return "TIE"
-      // }
-       if (computerSelection === 'paper'){
+
+      if (computerSelection === 'paper'){
         lossCount++
         return "LOSE"
       }
@@ -32,11 +29,7 @@ let playRound = (playerSelection, computerSelection) => {
       }
       break;
     case 'paper':
-      // if (computerSelection === 'paper') {
-      //   tieCount++
-      //   return "TIE"
-      // }
-       if (computerSelection === 'scissors'){
+      if (computerSelection === 'scissors'){
         lossCount++
         return "LOSE"
       }
@@ -46,11 +39,7 @@ let playRound = (playerSelection, computerSelection) => {
       }
       break;
     case 'scissors':
-      // if (computerSelection === 'scissors') {
-      //   tieCount++
-      //   return "TIE"
-      // }
-       if (computerSelection === 'rock'){
+      if (computerSelection === 'rock'){
         lossCount++
         return "LOSE"
       }
