@@ -1,12 +1,9 @@
 
 //create three options: rock, paper and scissors
+
 // have this function randomly select one each time it is called
 // then return the selected option
 // const playerSelection = prompt("Choose paper, rock or scissors"); (this was for single round game)
-// const rockButton = document.querySelector('#rock')
-// const paperButton = document.querySelector('#paper')
-// const scissorButton = document.querySelector('#scissors')
-// let computerSelection = getComputerChoice(choices)
 
 const choices = ["Rock", "Paper", "Scissors"]
 const getComputerChoice = choices => choices[Math.floor(Math.random()*choices.length)]
@@ -119,6 +116,9 @@ let playRound = (playerSelection, computerSelection) => {
               }
             })
           })
+
+          //previous iteration of game below//
+
         // }
           // while(winCount <5 || lossCount <5)
           // function game() {
