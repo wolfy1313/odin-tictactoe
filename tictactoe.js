@@ -82,7 +82,7 @@ let playRound = (playerSelection, computerSelection) => {
             return "that is not a valid selection."
           }
         }
-        do{
+        // do{
         buttons.forEach((button) => {
           button.addEventListener('click', () => {
             // do{
@@ -118,8 +118,9 @@ let playRound = (playerSelection, computerSelection) => {
                 restartGame()
               }
             })
-          })}
-          while(winCount <5 || lossCount <5)
+          })
+        // }
+          // while(winCount <5 || lossCount <5)
           // function game() {
             //   // do {
         //     // let playerSelection
