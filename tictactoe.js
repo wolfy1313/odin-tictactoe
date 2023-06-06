@@ -6,11 +6,18 @@
 // const playerSelection = prompt("Choose paper, rock or scissors"); (this was for single round game)
 
 const choices = ["Rock", "Paper", "Scissors"]
+
 const getComputerChoice = choices => choices[Math.floor(Math.random()*choices.length)]
+
 let winCount = 0;
 let lossCount = 0;
 let tieCount = 0;
 
+const restartGame = () => {
+  winCount = 0;
+  lossCount = 0;
+  tieCount = 0;
+}
 
 const playerChoiceDisplay = document.querySelector('#playerChoice')
 const computerChoiceDisplay = document.querySelector('#computerChoice')
@@ -22,17 +29,6 @@ const winnnerDisplay = document.querySelector('#winner')
 const buttons = document.querySelectorAll('button')
 const resetButton = document.querySelector('#restart')
 
-resetButton.addEventListener('click', () => {
-  winCount = 0;
-  lossCount = 0;
-  tieCount = 0;
-})
-
-const restartGame = () => {
-  winCount = 0;
-  lossCount = 0;
-  tieCount = 0;
-}
 
 let playRound = (playerSelection, computerSelection) => {
   
@@ -107,11 +103,14 @@ let playRound = (playerSelection, computerSelection) => {
 
               if (winCount === 5){
                 winnnerDisplay.textContent = "PLAYER WINS OMG -- Make Selection to play another round"
+                winnnerDisplay.style.color = 'blue'
                 restartGame()
               }
-
+              
               if (lossCount === 5) {
                 winnnerDisplay.textContent = "Computer Overlords Win CHEATING -- Make Selection to play another round";
+                winnnerDisplay.style.color = 'black'
+                winnnerDisplay.style.backgroundColor = 'red'
                 restartGame()
               }
             })
